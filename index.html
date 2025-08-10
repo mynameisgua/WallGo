@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>牆壁圍棋 · Wall Go</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="title">
+        <h1>牆壁圍棋 <span class="muted">Wall Go</span></h1>
+        <p class="subtitle">放棋、移動與築牆，封住越多區域越好！</p>
+      </div>
+      <div class="scorebar">
+        <div class="badge red"><span class="dot"></span><span class="label">Red</span> <span id="score-red">0</span></div>
+        <div class="badge blue"><span class="dot"></span><span class="label">Blue</span> <span id="score-blue">0</span></div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="info-row">
+        <div class="phase"><span id="phase-text">棋子放置階段</span></div>
+        <div class="round">
+          <span>輪到：</span>
+          <div class="who" id="turn-who"><span class="dot"></span><span class="txt">Red</span></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="actions">
+          <button id="btn-undo" class="btn ghost">悔棋</button>
+          <button id="btn-restart" class="btn">重新開始</button>
+          <button id="btn-score" class="btn accent">結算分數</button>
+        </div>
+      </div>
+      <div class="info-row small" id="placement-left">每位玩家可先放置 4 枚棋子（剩餘：<b id="left-red">4</b> / <b id="left-blue">4</b>）</div>
+      <div class="message" id="message"></div>
+    </section>
+
+    <main class="board-wrap">
+      <div id="board" class="board"></div>
+    </main>
+
+    <section class="panel rules">
+      <details>
+        <summary>查看規則</summary>
+        <div class="rules-content">
+          <h3>遊戲目標</h3>
+          <p>透過放置棋子、移動棋子與築牆，封住更多的棋盤區域來取得勝利。</p>
+          <h3>流程</h3>
+          <ol>
+            <li><b>放置階段</b>：紅藍輪流在 7×7 棋盤放置棋子；每位玩家先各放 4 枚。</li>
+            <li><b>移動階段</b>：每回合須移動同一枚己方棋子 2 步（可轉彎），每步只能移到上下左右相鄰且無牆阻隔的空格；若第一步無法移動則直接換對手。</li>
+            <li><b>築牆階段</b>：移動完成後，必須在「最後停下的那格」的四邊之一放置一段牆（不可重複放在已有牆的位置）。</li>
+          </ol>
+          <h3>勝利條件</h3>
+          <p>當雙方皆無法再移動時或玩家按下「結算分數」，將按牆面切分區域來計分：只包含紅子的區域計入紅分、只包含藍子的區域計入藍分，其他為中立不計分；高分者勝。</p>
+        </div>
+      </details>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

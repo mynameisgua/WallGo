@@ -1,0 +1,86 @@
+
+:root{
+  --bg:#0b1020;
+  --panel:#0e1530cc;
+  --border:#1b2748;
+  --text:#e6edf7;
+  --muted:#a7b3d3;
+  --accent:#00e5a8;
+  --red:#ff5a73;
+  --blue:#4bb3ff;
+  --grid:#0f3b37;
+  --cell:#0d6b5e;
+  --cell2:#0f6259;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--text); background: radial-gradient(1200px 800px at 20% -10%, #13204a 0%, #0b1020 60%), #0b1020;
+}
+.app{max-width:1100px;margin:24px auto;padding:0 16px}
+.app-header{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-bottom:16px}
+.title h1{font-size:36px;margin:0 0 4px 0;font-weight:800;letter-spacing:.5px}
+.title .muted{font-size:20px;color:var(--muted);font-weight:700;margin-left:8px}
+.subtitle{margin:0;color:var(--muted)}
+.scorebar{display:flex;gap:10px}
+.badge{display:flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 12px;border-radius:999px;background: #0c1430aa;backdrop-filter: blur(6px)}
+.badge .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.badge.red .dot{background:var(--red)}
+.badge.blue .dot{background:var(--blue)}
+
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:12px 14px;margin-bottom:14px;box-shadow: 0 10px 30px rgba(0,0,0,.25)}
+.info-row{display:flex;align-items:center;gap:12px}
+.info-row.small{font-size:13px;color:var(--muted)}
+.phase{font-weight:800}
+.round{display:flex;align-items:center;gap:8px}
+.who{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:4px 10px;border-radius:999px;background:#0c1430aa}
+.who .dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--red)}
+.who.blue .dot{background:var(--blue)}
+.spacer{flex:1}
+.actions{display:flex;gap:8px}
+.btn{border:none;border-radius:12px;padding:8px 12px;font-weight:700;background:#1a7f6e;color:#fff;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn.accent{background:linear-gradient(135deg, #19e3a2, #00b8d9)}
+
+.message{margin-top:8px;color:#b9ffea;font-weight:700;min-height:22px}
+
+.board-wrap{display:flex;justify-content:center;align-items:center}
+.board{
+  position:relative;
+  width:min(92vw, 680px);
+  aspect-ratio:1/1;
+  border-radius:20px;
+  padding:10px;
+  background:linear-gradient(180deg,#0a5e54,#06473f);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.08), 0 20px 50px rgba(0,0,0,.35);
+}
+.grid{
+  position:absolute; left:10px; top:10px; right:10px; bottom:10px;
+  display:grid; grid-template-columns:repeat(7,1fr); grid-template-rows:repeat(7,1fr); gap:6px;
+}
+.cell{
+  position:relative; background:linear-gradient(180deg, var(--cell), var(--cell2));
+  border-radius:10px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center; cursor:pointer; transition:transform .05s ease;
+}
+.cell:hover{transform:translateY(-1px)}
+.cell.disabled{opacity:.4;pointer-events:none}
+.piece{width:70%;aspect-ratio:1/1;border-radius:50%;box-shadow: 0 8px 16px rgba(0,0,0,.35), inset 0 2px 3px rgba(255,255,255,.3);}
+.piece.red{background: radial-gradient(circle at 30% 25%, #ff9fb0 0%, #ff6c83 35%, #ff4163 70%, #c81d38 100%);}
+.piece.blue{background: radial-gradient(circle at 30% 25%, #a7d6ff 0%, #6ab8ff 35%, #3c9bff 70%, #1c66d4 100%);}
+
+.marker{position:absolute; width:10px; height:10px; border-radius:50%; background:#b9ffea; opacity:.9; box-shadow: 0 0 0 4px rgba(185,255,234,.18);}
+.wall{
+  position:absolute; background:#f6f7fb; border-radius:6px; box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
+.wall.h{ height:6px; }
+.wall.v{ width:6px; }
+.wall.candidate{background: #ffe082; box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.35);}
+.wall.clickable{cursor:pointer; opacity:.95}
+.wall.clickable:hover{filter:brightness(0.98)}
+
+.rules details{cursor:pointer}
+.rules-content{color:var(--muted);line-height:1.6}
+.rules-content h3{color:#d8e2ff}
