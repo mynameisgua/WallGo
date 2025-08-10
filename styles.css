@@ -1,4 +1,3 @@
-
 :root{
   --bg:#0b1020;
   --panel:#0e1530cc;
@@ -8,7 +7,6 @@
   --accent:#00e5a8;
   --red:#ff5a73;
   --blue:#4bb3ff;
-  --grid:#0f3b37;
   --cell:#0d6b5e;
   --cell2:#0f6259;
 }
@@ -80,7 +78,3 @@ body{
 .wall.candidate{background: #ffe082; box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.35);}
 .wall.clickable{cursor:pointer; opacity:.95}
 .wall.clickable:hover{filter:brightness(0.98)}
-
-.rules details{cursor:pointer}
-.rules-content{color:var(--muted);line-height:1.6}
-.rules-content h3{color:#d8e2ff}
